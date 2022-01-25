@@ -1,4 +1,4 @@
-module Module1
+module main.go
 
 go 1.17
 

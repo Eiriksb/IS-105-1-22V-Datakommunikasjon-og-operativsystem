@@ -1,4 +1,4 @@
-package main
+package myquote
 
 import (
 	"fmt"
@@ -6,9 +6,9 @@ import (
 	"rsc.io/quote"
 )
 
-func main() {
+func M() {
 	fmt.Println(quote.Go())
-	fmt.Println(quote.Hello())
 	fmt.Println(quote.Glass())
 	fmt.Println(quote.Opt())
+	fmt.Println(quote.Hello())
 }
