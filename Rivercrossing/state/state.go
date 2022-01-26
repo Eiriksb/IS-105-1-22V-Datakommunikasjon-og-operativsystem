@@ -4,34 +4,64 @@ import (
 	"strconv"
 )
 
-/*var ky bool
-var rev bool
-var korn bool
-var hs bool
-var boat bool
-var water bool*/
+//Disse skal kunne endres med Event
 
-func State() (FinalState string) {
-	//Hvem som er på båten
-	ky := true
-	rev := true
-	korn := true
-	hs := true
-	boat := true
-	water := true
-	//Returnerer status om den er true eller false og gjør den om til en string
-	/*stateKy = "| Status Kylling: " + strconv.FormatBool(ky) + " |"
-	stateRev = "Status Rev: " + strconv.FormatBool(rev) + " |"
-	stateKorn = "Status Korn: " + strconv.FormatBool(korn) + " |"
-	stateHS = "Status HS: " + strconv.FormatBool(hs) + " |"
-	stateB = "Status Båt: " + strconv.FormatBool(boat) + " |"
-	stateW = "Status Water: " + strconv.FormatBool(water) + " |"*/
+//Om de er på båten (Boat)
+var kyB = true
+var revB = false
+var kornB = false
+var hsB = false
 
-	FinalState = "| Status Kylling: " + strconv.FormatBool(ky) + " |" + "Status Rev: " + strconv.FormatBool(rev) + " |" + "Status Korn: " + strconv.FormatBool(korn) + " |" + "Status HS: " + strconv.FormatBool(hs) + " |" + "Status Båt: " + strconv.FormatBool(boat) + " |" + "Status Water: " + strconv.FormatBool(water) + " |"
+//Om de er på land V (West)
+var kyW = false
+var revW = false
+var kornW = true
+var hsW = false
+var boatW = true
+
+//om der er på land Ø (East)
+var kyE = false
+var revE = true
+var kornE = false
+var hsE = true
+var boatE = false
+
+//State på hvem som er i båt
+
+func StateBoat() (FinalState string) {
+
+	FinalState = "Sts Ky:" + strconv.FormatBool(kyB) + " | " + "Sts Rev:" + strconv.FormatBool(revB) + " | " + "Sts Korn:" + strconv.FormatBool(kornB) + " | " + "Sts HS:" + strconv.FormatBool(hsB)
 
 	return
 }
 
+//State på hvem som er på Land Vest
+
+func StateLandV() (FinalState string) {
+
+	FinalState = "Sts Ky:" + strconv.FormatBool(kyW) + " | " + "Sts Rev:" + strconv.FormatBool(revW) + " | " + "Sts Korn:" + strconv.FormatBool(kornW) + " | " + "Sts HS:" + strconv.FormatBool(hsW) + " | " + "Sts Boat: " + strconv.FormatBool(boatW)
+
+	return
+}
+
+//State på hvem som er på Land Øst
+
+func StateLandE() (FinalState string) {
+
+	FinalState = "Sts Ky:" + strconv.FormatBool(kyE) + " | " + "Sts Rev:" + strconv.FormatBool(revE) + " | " + "Sts Korn:" + strconv.FormatBool(kornE) + " | " + "Sts HS:" + strconv.FormatBool(hsE) + " | " + "Sts Boat: " + strconv.FormatBool(boatE)
+
+	return
+}
+
+//Legger sammen alle states i en string
+
+func FinalState() (FinalState string) {
+	FinalState = StateBoat() + StateLandE() + StateLandV()
+	return
+}
+
+//For å så vise den med ViewState
+
 func ViewState() string {
-	return State()
+	return FinalState()
 }
