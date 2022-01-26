@@ -2,8 +2,10 @@ package main
 
 import (
 	"fmt"
+
+	"main.go/state"
 )
 
 func main() {
-	fmt.Println("Hello")
+	fmt.Println(state.State())
 }
