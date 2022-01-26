@@ -1,11 +1,16 @@
 package event
 
-import "testing"
+import (
+	"testing"
+)
 
-func TestPut(t *testing.T) {
-	wanted := "[kylling rev korn ---\\ \\_korn_/ _________________/---]"
-	got := Put("korn")
+// Test som tester PutAllB
+func TestKyoHsB(t *testing.T) {
+	wanted := "Sts Ky:true | Sts Rev:false | Sts Korn:false | Sts HS:true"
+	got := BoatInfo
 	if got != wanted {
-		t.Errorf("Feil, fikk %q, ønsket %q.", got, wanted)
+		t.Errorf("Feil, fikk %q, ønsket %q. Enter er det ingen i båten, for mange i båten eller Mennesket mangler", got, wanted)
+	} else {
+		t.Log("Kylling og Menneske er i båten")
 	}
 }

@@ -7,30 +7,30 @@ import (
 //Disse skal kunne endres med Event
 
 //Om de er på båten (Boat)
-var kyB = true
-var revB = false
-var kornB = false
-var hsB = false
+var KyB = false
+var RevB = false
+var KornB = false
+var HsB = false
 
 //Om de er på land V (West)
-var kyW = false
-var revW = false
-var kornW = true
-var hsW = false
-var boatW = true
+var KyW = true
+var RevW = true
+var KornW = true
+var HsW = true
+var BoatW = true
 
 //om der er på land Ø (East)
-var kyE = false
-var revE = true
-var kornE = false
-var hsE = true
-var boatE = false
+var KyE = false
+var RevE = false
+var KornE = false
+var HsE = false
+var BoatE = false
 
 //State på hvem som er i båt
 
 func StateBoat() (FinalState string) {
 
-	FinalState = "Sts Ky:" + strconv.FormatBool(kyB) + " | " + "Sts Rev:" + strconv.FormatBool(revB) + " | " + "Sts Korn:" + strconv.FormatBool(kornB) + " | " + "Sts HS:" + strconv.FormatBool(hsB)
+	FinalState = "Sts Ky B:" + strconv.FormatBool(KyB) + " | " + "Sts Rev B:" + strconv.FormatBool(RevB) + " | " + "Sts Korn B:" + strconv.FormatBool(KornB) + " | " + "Sts HS B:" + strconv.FormatBool(HsB)
 
 	return
 }
@@ -39,7 +39,7 @@ func StateBoat() (FinalState string) {
 
 func StateLandV() (FinalState string) {
 
-	FinalState = "Sts Ky:" + strconv.FormatBool(kyW) + " | " + "Sts Rev:" + strconv.FormatBool(revW) + " | " + "Sts Korn:" + strconv.FormatBool(kornW) + " | " + "Sts HS:" + strconv.FormatBool(hsW) + " | " + "Sts Boat: " + strconv.FormatBool(boatW)
+	FinalState = "Sts Ky V:" + strconv.FormatBool(KyW) + " | " + "Sts Rev V:" + strconv.FormatBool(RevW) + " | " + "Sts Korn V:" + strconv.FormatBool(KornW) + " | " + "Sts HS V:" + strconv.FormatBool(HsW) + " | " + "Sts Boat V: " + strconv.FormatBool(BoatW)
 
 	return
 }
@@ -48,7 +48,7 @@ func StateLandV() (FinalState string) {
 
 func StateLandE() (FinalState string) {
 
-	FinalState = "Sts Ky:" + strconv.FormatBool(kyE) + " | " + "Sts Rev:" + strconv.FormatBool(revE) + " | " + "Sts Korn:" + strconv.FormatBool(kornE) + " | " + "Sts HS:" + strconv.FormatBool(hsE) + " | " + "Sts Boat: " + strconv.FormatBool(boatE)
+	FinalState = "Sts Ky E:" + strconv.FormatBool(KyE) + " | " + "Sts Rev E:" + strconv.FormatBool(RevE) + " | " + "Sts Korn E:" + strconv.FormatBool(KornE) + " | " + "Sts HS E:" + strconv.FormatBool(HsE) + " | " + "Sts Boat E: " + strconv.FormatBool(BoatE)
 
 	return
 }
