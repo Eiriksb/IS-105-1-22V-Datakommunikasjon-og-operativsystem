@@ -5,6 +5,8 @@ Kode for IS-105-1 22V Datakommunikasjon og operativsystem
 
 ## Rivercrossing
 - Veldig likt et rivercrossing spill men ikke helt da den ikke egentlig lagrer noe.
+- Når endringer er gjort får man en melding tilbake som bekrefter kommandoen og man kan se ved **info** kommandoen at det er blitt endringer i info panelet.
+- Spillet reseter seg til standard verdier når du går ut av spillet med Ctrl+C 
 - Spiller kan bruke kommandoer som: 
 
     | Command | Description |
