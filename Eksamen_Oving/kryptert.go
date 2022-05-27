@@ -28,6 +28,15 @@ func caesar(r rune, shift int) rune {
 	return rune(s)
 }
 
+//Convert binary into ascii text
+func binaryToString(data []byte) string {
+	var result string
+	for _, value := range data {
+		result += string(value)
+	}
+	return result
+}
+
 func main() {
 
 	// Connect to server.
@@ -62,13 +71,13 @@ func main() {
 	}
 	// Read response from server.
 	buffer := make([]byte, 1024)
-	length, err := conn.Read(buffer)
+	mlen, err := conn.Read(buffer)
 	if err != nil {
 		fmt.Println("Error reading from server:", err.Error())
 		os.Exit(1)
 	}
-	// Print response from server
-	response := []byte(buffer[:length])
+	//serverResponse := string(buffer[:mLen])
+	response := string(buffer[:mlen])
 	fmt.Println()
 	fmt.Println("----------------TILBAK FRA SERVER----------------")
 	fmt.Println()
@@ -77,11 +86,11 @@ func main() {
 	// Close connection.
 	conn.Close()
 
-	//Print response from server to a string
+	// Decrypt response (FUNKER IKKE)
 	resultD := strings.Map(func(r rune) rune {
 		// Shift each character by 4 places.
 		return caesar(r, -4)
 	}, string(response))
 
-	fmt.Println("Dekryptert og mottatt: " + resultD)
+	fmt.Println("Dekryptert og mottatt (FUNKER IKKE): " + resultD)
 }

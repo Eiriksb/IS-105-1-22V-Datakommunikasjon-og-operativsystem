@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"net"
 	"os"
@@ -33,8 +34,13 @@ func main() {
 	}
 }
 
-func stringToBinary(str string) []byte {
-	return []byte(str)
+//Bytes to binary string
+func toBinaryBytes(s string) string {
+	var buffer bytes.Buffer
+	for i := 0; i < len(s); i++ {
+		fmt.Fprintf(&buffer, "%08b", s[i])
+	}
+	return fmt.Sprintf("%s", buffer.Bytes())
 }
 
 func processClient(connection net.Conn) {
@@ -44,11 +50,12 @@ func processClient(connection net.Conn) {
 		fmt.Println("Error reading:", err.Error())
 	}
 
-	serverResponse := string(buffer[:mLen])
-	response := stringToBinary(serverResponse)
+	//serverResponse := string(buffer[:mLen])
+	response := toBinaryBytes(string(buffer[:mLen]))
 
 	fmt.Println("Received : ", string(buffer[:mLen]))
+	fmt.Println("Sendes back in binary : ", string(response))
 	_, err = connection.Write([]byte(response))
-	fmt.Println("Sent : ", []byte(response))
+	fmt.Println("Sent in byte: ", []byte(response))
 	connection.Close()
 }
