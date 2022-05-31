@@ -20,10 +20,10 @@ func caesar(r rune, shift int) rune {
 	// Shift character by specified number of places.
 	// ... If beyond range, shift backward or forward.
 	s := int(r) + shift
-	if s > 'z' {
-		return rune(s - 26)
-	} else if s < 'a' {
-		return rune(s + 26)
+	if s >= 248 { //Siste tegn i ascii vi bruker er 248 (å)
+		return rune(s - 217) //Siste tegn - første tegn i ascii
+	} else if s < 32 { //Første tegn i ascii vi bruker er 32 (space)
+		return rune(s + 217)
 	}
 	return rune(s)
 }
@@ -86,11 +86,11 @@ func main() {
 	// Close connection.
 	conn.Close()
 
-	// Decrypt response (FUNKER IKKE)
+	// Decrypt response
 	resultD := strings.Map(func(r rune) rune {
 		// Shift each character by 4 places.
 		return caesar(r, -4)
 	}, string(response))
 
-	fmt.Println("Dekryptert og mottatt (FUNKER IKKE): " + resultD)
+	fmt.Println("Dekryptert og mottatt: " + resultD)
 }
