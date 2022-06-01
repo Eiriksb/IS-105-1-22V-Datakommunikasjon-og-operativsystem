@@ -1,9 +1,9 @@
 # IS 105 PRØVE EKSAMEN
 Kode for IS-105-1 22V Prøve eksamen
-## [Klient(https://github.com/Eiriksb/IS-105-1-22V-Datakommunikasjon-og-operativsystem/tree/main/Eksamen_Oving)
+## [Klient](https://github.com/Eiriksb/IS-105-1-22V-Datakommunikasjon-og-operativsystem/tree/main/Eksamen_Oving)
 - Klient program som krypterer en medling, sender den og får den tilbake og dekrypterer den.
 
-## [Server([https://github.com/Eiriksb/IS-105-1-22V-Datakommunikasjon-og-operativsystem/tree/main/Eksamen_Server)
+## [Server]([https://github.com/Eiriksb/IS-105-1-22V-Datakommunikasjon-og-operativsystem/tree/main/Eksamen_Server)
 - Server for å ta inn og sende tilbake til klient
 
 
