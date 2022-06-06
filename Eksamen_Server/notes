@@ -1,0 +1,8 @@
+//Write to client2
+	connection2, err2 := net.Dial(SERVER_TYPE, SERVER_HOST+":"+SERVER_PORT2)
+	if err2 != nil {
+		fmt.Println("Error dialing:", err2.Error())
+	}
+	defer connection2.Close()
+	connection2.Write([]byte(response))
+	fmt.Println("Sendes til KLIENT2 : ", string(response))

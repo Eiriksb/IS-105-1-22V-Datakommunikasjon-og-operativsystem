@@ -17,8 +17,8 @@ const (
 )
 
 func caesar(r rune, shift int) rune {
-	// Shift character by specified number of places.
-	// ... If beyond range, shift backward or forward.
+	// Skifter karakteren av shift(4) plasser
+	//... Vist den er forbi alfabetet, går den tilbake til starten.
 	s := int(r) + shift
 	if s >= 248 { //Siste tegn i ascii vi bruker er 248 (å)
 		return rune(s - 217) //Siste tegn - første tegn i ascii
@@ -26,15 +26,6 @@ func caesar(r rune, shift int) rune {
 		return rune(s + 217)
 	}
 	return rune(s)
-}
-
-//Convert binary into ascii text
-func binaryToString(data []byte) string {
-	var result string
-	for _, value := range data {
-		result += string(value)
-	}
-	return result
 }
 
 func main() {

@@ -1,25 +1,24 @@
-func caesar(r rune, shift int) rune {
-	// Shift character by specified number of places.
-	// ... If beyond range, shift backward or forward.
-	s := int(r) + shift
-	if s > 'z' {
-		return rune(s - 26)
-	} else if s < 'a' {
-		return rune(s + 26)
-	}
-	return rune(s)
+// Read response from server.
+buffer := make([]byte, 1024)
+mlen, err := conn.Read(buffer)
+if err != nil {
+	fmt.Println("Error reading from server:", err.Error())
+	os.Exit(1)
 }
+//serverResponse := string(buffer[:mLen])
+response := string(buffer[:mlen])
+fmt.Println()
+fmt.Println("----------------TILBAK FRA SERVER----------------")
+fmt.Println()
+fmt.Print("Server response: ")
+fmt.Println(response)
+// Close connection.
+conn.Close()
 
-"%q -> %q\n", Melding[i], chiffer[index+shift-len(chiffer)]
+// Decrypt response
+resultD := strings.Map(func(r rune) rune {
+	// Shift each character by 4 places.
+	return caesar(r, -4)
+}, string(response))
 
-} else if s == 'æ' {
-	return rune(s - 230)
-} else if s == 'ø' {
-	return rune(s - 248)
-} else if s == 'å' {
-	return rune(s - 229)
-} else if s == ',' {
-	return rune(s - 44)
-} else if s == ' ' {
-	return rune(s - 32)
-}
+fmt.Println("Dekryptert og mottatt: " + resultD)

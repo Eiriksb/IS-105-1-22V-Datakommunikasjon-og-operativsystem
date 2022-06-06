@@ -20,8 +20,9 @@ func main() {
 		os.Exit(1)
 	}
 	defer server.Close()
+
 	fmt.Println("Listening on " + SERVER_HOST + ":" + SERVER_PORT)
-	fmt.Println("Waiting for client...")
+	fmt.Println("Waiting for clients...")
 	for {
 		connection, err := server.Accept()
 		if err != nil {
@@ -31,6 +32,7 @@ func main() {
 		fmt.Println("client connected")
 		go processClient(connection)
 	}
+
 }
 
 func processClient(connection net.Conn) {
@@ -44,7 +46,7 @@ func processClient(connection net.Conn) {
 	response := string(buffer[:mLen])
 
 	fmt.Println("Received : ", string(buffer[:mLen]))
-	fmt.Println("Sendes back in binary : ", string(response))
+
 	_, err = connection.Write([]byte(response))
 	fmt.Println("Sent in byte: ", []byte(response))
 	connection.Close()
